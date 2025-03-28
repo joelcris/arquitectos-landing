@@ -5,23 +5,37 @@
     padding: 0;
 }
 
+:root {
+    /* Elegant architectural color palette */
+    --primary-color: #94795D; /* Warm bronze/taupe */
+    --secondary-color: #DCD8D0; /* Light stone */
+    --accent-color: #BFAA8C; /* Warm beige */
+    --dark-color: #333333;
+    --light-color: #FFFFFF;
+    --background-color: #F9F7F4; /* Off-white */
+    --text-color: #505050;
+    --heading-color: #333333;
+    --subtle-color: #E9E5E0; /* Very light stone for borders */
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.7;
-    color: #444;
-    background-color: #ffffff;
+    color: var(--text-color);
+    background-color: var(--background-color);
     font-weight: 300;
-    overflow-x: hidden; /* Prevent horizontal scroll if overlap causes issues */
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 500;
-    color: #222;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-weight: 600;
+    color: var(--heading-color);
+    letter-spacing: -0.02em;
 }
 
 /* Container */
@@ -35,12 +49,12 @@ h1, h2, h3, h4, h5, h6 {
 header {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 1.5rem 0;
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid var(--subtle-color);
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 header .container {
@@ -56,9 +70,30 @@ header .container {
 
 header .logo {
     font-size: 1.9rem;
-    color: #111;
+    color: var(--heading-color);
     font-weight: 600;
     letter-spacing: -0.5px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+header .logo::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+header .logo:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 header nav ul {
@@ -72,7 +107,7 @@ header nav ul li {
 
 header nav ul li a {
     text-decoration: none;
-    color: #555;
+    color: var(--text-color);
     font-weight: 400;
     font-size: 0.95rem;
     letter-spacing: 0.5px;
@@ -88,12 +123,12 @@ header nav ul li a::after {
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: #333;
+    background-color: var(--primary-color);
     transition: width 0.3s ease;
 }
 
 header nav ul li a:hover {
-    color: #111;
+    color: var(--primary-color);
 }
 
 header nav ul li a:hover::after {
@@ -103,7 +138,7 @@ header nav ul li a:hover::after {
 
 /* Hero Section */
 #hero {
-    height: 80vh;
+    height: 90vh;
     background: url('images/hero-background.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
@@ -120,7 +155,7 @@ header nav ul li a:hover::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+    background: rgba(0, 0, 0, 0.4); /* Simple overlay for readability */
 }
 
 .hero-content {
@@ -130,11 +165,12 @@ header nav ul li a:hover::after {
 }
 
 .hero-content h2 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 1rem;
     font-weight: 600;
     color: #fff;
     letter-spacing: -1px;
+    line-height: 1.1;
 }
 
 .hero-content p {
@@ -146,141 +182,105 @@ header nav ul li a:hover::after {
 /* Content Sections */
 .content-section {
     padding: 100px 0;
-    background-color: #ffffff;
-    border-bottom: 1px solid #f0f0f0;
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--subtle-color);
 }
 .content-section:last-of-type {
     border-bottom: none;
 }
 
-/* Remove centered heading for sections where it's not needed */
-/* .content-section h2 {
-    text-align: center;
-    margin-bottom: 60px;
-    font-size: 2.5rem;
-    color: #222;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-} */
-
-/* === NEW/MODIFIED STYLES FOR #about === */
+/* === MODIFIED STYLES FOR #about === */
 #about .container {
-    max-width: 1400px; /* Allow container to be wider for this layout */
+    max-width: 1400px;
 }
 
 .about-layout {
     display: grid;
-    grid-template-columns: 40% 60%; /* Asymmetrical columns */
-    gap: 50px; /* Gap between text and image */
-    align-items: center; /* Vertically align items in the grid */
+    grid-template-columns: 40% 60%;
+    gap: 50px;
+    align-items: center;
 }
 
 .about-text-box {
-    background-color: #f8f8f8; /* Light background for the text box */
-    padding: 40px 50px; /* Padding inside the text box */
-    position: relative; /* Needed for z-index and potential overlap */
-    z-index: 2; /* Ensure text box is above the image if overlapping */
-    /* Optional: Add slight overlap using negative margin */
+    background-color: var(--light-color);
+    padding: 40px 50px;
+    position: relative;
+    z-index: 2;
     margin-right: -80px;
-    /* Optional: Add subtle shadow */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    border-left: 2px solid var(--primary-color);
 }
 
 .about-text-box h2 {
-    /* Adjust heading style within the box */
-    text-align: left; /* Align heading left */
-    font-size: 2.2rem;
-    margin-bottom: 25px; /* Space below heading */
+    text-align: left;
+    font-size: 2.8rem;
+    margin-bottom: 25px;
     font-weight: 600;
+    color: var(--heading-color);
 }
 
 .about-text-box p {
-    /* Adjust paragraph style within the box */
-    text-align: left; /* Align text left */
-    font-size: 1.05rem; /* Slightly smaller text */
-    color: #555;
+    text-align: left;
+    font-size: 1.05rem;
+    color: var(--text-color);
     line-height: 1.8;
-    max-width: none; /* Remove previous max-width */
-    margin: 0; /* Remove previous margin */
+    max-width: none;
+    margin: 0;
 }
-
-/* Optional Button Styling (if uncommented in HTML) */
-/*
-.about-button {
-    display: inline-flex;
-    align-items: center;
-    margin-top: 30px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.about-button .button-icon {
-    display: inline-block;
-    background-color: #555;
-    padding: 4px 6px;
-    margin-right: 10px;
-    line-height: 1;
-    font-weight: bold;
-}
-.about-button:hover {
-    background-color: #111;
-}
-*/
-
 
 .about-image-container {
-    position: relative; /* For potential pseudo-elements */
-    z-index: 1; /* Below the text box */
-    border-radius: 4px; /* Match text box */
-    overflow: hidden; /* Hide overflowing parts of image */
+    position: relative;
+    z-index: 1;
+    border-radius: 0;
+    overflow: hidden;
 }
 
 .about-image-container img {
-    display: block; /* Remove extra space below image */
-    width: 100%; /* Make image fill container */
-    height: auto; /* Maintain aspect ratio */
-    /* Or use fixed height and object-fit */
-    /* height: 500px; */
-    /* object-fit: cover; */
-    border-radius: 4px; /* Match container */
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    transition: transform 0.7s ease;
+    filter: none;
 }
-/* === END NEW/MODIFIED STYLES FOR #about === */
+
+.about-image-container:hover img {
+    transform: scale(1.03);
+}
+
+/* === END MODIFIED STYLES FOR #about === */
 
 
 /* Gallery Section */
-#gallery h2 { /* Re-apply centered heading specifically for gallery */
+#gallery h2 {
     text-align: center;
     margin-bottom: 60px;
-    font-size: 2.5rem;
-    color: #222;
+    font-size: 3rem;
+    color: var(--heading-color);
     font-weight: 600;
     letter-spacing: -0.5px;
 }
 
+/* Masonry-style gallery */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    column-count: 3;
+    column-gap: 25px;
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 0;
+    margin-bottom: 25px;
+    break-inside: avoid;
+    background-color: var(--light-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-item img {
     width: 100%;
-    height: 300px;
-    object-fit: cover;
+    height: auto;
     display: block;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
@@ -293,9 +293,15 @@ header nav ul li a:hover::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    transition: background-color 0.4s ease;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.4));
+    opacity: 0;
+    transition: opacity 0.4s ease;
     pointer-events: none;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
 }
 
 .gallery-item:hover img {
@@ -303,16 +309,16 @@ header nav ul li a:hover::after {
 }
 
 .gallery-item:hover::after {
-    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
 }
 
 
 /* Contact Section */
-#contact h2 { /* Re-apply centered heading specifically for contact */
+#contact h2 {
     text-align: center;
     margin-bottom: 60px;
-    font-size: 2.5rem;
-    color: #222;
+    font-size: 3rem;
+    color: var(--heading-color);
     font-weight: 600;
     letter-spacing: -0.5px;
 }
@@ -327,13 +333,13 @@ header nav ul li a:hover::after {
 .contact-info h3, .contact-map h3 {
     margin-bottom: 25px;
     font-size: 1.6rem;
-    color: #333;
+    color: var(--heading-color);
     font-weight: 500;
 }
 
 .contact-info p {
     margin-bottom: 15px;
-    color: #555;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     font-size: 1.05rem;
@@ -341,14 +347,14 @@ header nav ul li a:hover::after {
 
 .icon-contact {
     margin-right: 15px;
-    color: #888;
+    color: var(--primary-color);
     font-size: 1.2rem;
     width: 25px;
     text-align: center;
 }
 
 .social-links a {
-    color: #666;
+    color: var(--text-color);
     font-size: 1.9rem;
     margin-right: 20px;
     text-decoration: none;
@@ -361,29 +367,30 @@ header nav ul li a:hover::after {
 }
 
 .social-links a:hover {
-    color: #111;
+    color: var(--primary-color);
     transform: translateY(-3px);
 }
 
 #map-placeholder {
-    background-color: #f0f0f0;
+    background-color: var(--light-color);
     height: 350px;
-    border-radius: 4px;
+    border-radius: 0;
     overflow: hidden;
-    border: 1px solid #eee;
+    border: 1px solid var(--subtle-color);
 }
 
 #map-placeholder iframe {
     width: 100%;
     height: 100%;
     border: none;
+    filter: none;
 }
 
 
 /* Footer */
 footer {
-    background-color: #1a1a1a;
-    color: #aaa;
+    background-color: var(--heading-color);
+    color: rgba(255, 255, 255, 0.7);
     text-align: center;
     padding: 30px 0;
     margin-top: 60px;
@@ -409,7 +416,7 @@ footer {
 }
 
 .lightbox.active {
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(255, 255, 255, 0.98);
     opacity: 1;
     visibility: visible;
     transition: background-color 0.5s ease, opacity 0.5s ease, visibility 0s linear 0s;
@@ -435,7 +442,7 @@ footer {
     position: absolute;
     top: 20px;
     right: 30px;
-    color: #f1f1f1;
+    color: var(--heading-color);
     font-size: 45px;
     font-weight: 300;
     transition: 0.3s ease;
@@ -446,7 +453,7 @@ footer {
 
 .close-lightbox:hover,
 .close-lightbox:focus {
-    color: #ccc;
+    color: var(--primary-color);
 }
 
 /* Carousel Navigation Buttons */
@@ -457,44 +464,42 @@ footer {
   width: auto;
   padding: 16px;
   margin-top: -22px;
-  color: white;
+  color: var(--heading-color);
   font-weight: bold;
   font-size: 24px;
   transition: 0.3s ease;
-  border-radius: 0 3px 3px 0;
+  border-radius: 0;
   user-select: none;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(255, 255, 255, 0.7);
   z-index: 1001;
 }
 
 .next {
   right: 0;
-  border-radius: 3px 0 0 3px;
+  border-radius: 0;
 }
 .prev {
   left: 0;
-  border-radius: 0 3px 3px 0;
+  border-radius: 0;
 }
 
 .prev:hover, .next:hover {
-  background-color: rgba(255,255,255,0.3);
-  color: #111;
+  background-color: var(--primary-color);
+  color: var(--light-color);
 }
 
 
-/* --- Animation Classes --- */
+/* --- Enhanced Animation Classes --- */
 .fade-in-element {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-    /* Base delay, can be overridden */
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
     transition-delay: 0.1s;
 }
 
-/* Specific delays for About section elements */
+/* Improved animation delays */
 .about-text-box.fade-in-element { transition-delay: 0.2s; }
 .about-image-container.fade-in-element { transition-delay: 0.3s; }
-
 
 /* Staggered delay for gallery items */
 .gallery-item.fade-in-element:nth-child(1) { transition-delay: 0.1s; }
@@ -504,12 +509,18 @@ footer {
 .gallery-item.fade-in-element:nth-child(5) { transition-delay: 0.25s; }
 .gallery-item.fade-in-element:nth-child(6) { transition-delay: 0.35s; }
 
-
 .fade-in-element.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Hover effects for links and buttons */
+a, button {
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
+a:hover, button:hover {
+    transform: translateY(-2px);
+}
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
@@ -525,15 +536,19 @@ footer {
         padding: 30px 40px;
         margin-right: -40px; /* Reduce overlap */
     }
-    .about-text-box h2 { font-size: 2rem; }
+    .about-text-box h2 { font-size: 2.5rem; }
     .about-text-box p { font-size: 1rem; }
 
     .contact-grid {
         gap: 40px;
     }
-     .gallery-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    
+    /* Adjust gallery to 2 columns on tablets */
+    .gallery-grid {
+        column-count: 2;
+        column-gap: 20px;
     }
+    
     .prev, .next {
         padding: 12px;
         font-size: 20px;
@@ -543,7 +558,6 @@ footer {
         top: 15px;
         right: 20px;
     }
-
 }
 
 
@@ -559,7 +573,7 @@ footer {
         margin: 0 15px;
     }
     .hero-content h2 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     .hero-content p {
         font-size: 1.1rem;
@@ -583,7 +597,7 @@ footer {
     }
 
      /* Adjust heading sizes */
-     .content-section h2 { font-size: 2rem; margin-bottom: 40px; }
+     .content-section h2 { font-size: 2.5rem; margin-bottom: 40px; }
      #gallery h2, #contact h2 { text-align: center; } /* Ensure gallery/contact headings remain centered */
 
 
@@ -593,12 +607,10 @@ footer {
     .contact-map {
         margin-top: 40px;
     }
+    
+    /* Switch to single column on mobile */
     .gallery-grid {
-         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-         gap: 20px;
-    }
-     .gallery-item img {
-        height: 220px;
+         column-count: 1;
     }
 }
 
@@ -624,14 +636,7 @@ footer {
      .content-section h2 { font-size: 1.8rem; }
      .about-text-box { padding: 25px 30px; }
      .about-image-container { max-width: 90%; }
-
-    .gallery-grid {
-         grid-template-columns: 1fr 1fr;
-         gap: 15px;
-    }
-     .gallery-item img {
-        height: 180px;
-    }
+     
      .social-links a {
         font-size: 1.7rem;
         margin-right: 15px;

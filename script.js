@@ -111,17 +111,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    // --- Intersection Observer for Fade-in Animation ---
+    // --- Enhanced Intersection Observer for Fade-in Animation ---
     const fadeElements = document.querySelectorAll('.fade-in-element');
     if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    // observer.unobserve(entry.target);
+                    // Add a slight delay for staggered effect
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, 150);
+                } else {
+                    // Optional: Hide elements when they scroll out of view
+                    // entry.target.classList.remove('is-visible');
                 }
             });
-        }, { threshold: 0.1 });
+        }, { 
+            threshold: 0.15,
+            rootMargin: '0px 0px -10% 0px' // Trigger slightly before element is in view
+        });
         fadeElements.forEach(el => observer.observe(el));
     } else {
         console.warn('IntersectionObserver not supported, animations disabled.');
@@ -131,5 +139,27 @@ document.addEventListener('DOMContentLoaded', function() {
             el.style.opacity = '1';
         });
     }
+
+    // --- Smooth scrolling for navigation links ---
+    const navLinks = document.querySelectorAll('header nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Add some offset to account for fixed header
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
 
 }); // End of DOMContentLoaded listener
