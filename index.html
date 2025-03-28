@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectos Xxxx - Arquitectura y Diseño</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo-link">
+                <h1 class="logo">Arquitectos Xxxx</h1>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#about">Sobre Nosotros</a></li>
+                    <li><a href="#gallery">Proyectos</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content fade-in-element">
+            <h2>Diseñando Espacios, Creando Futuros</h2>
+            <p>Arquitectura innovadora arraigada en el contexto y la sostenibilidad.</p>
+        </div>
+    </section>
+
+    <!-- === MODIFIED SECTION START === -->
+    <section id="about" class="content-section">
+        <div class="container">
+            <!-- New layout wrapper -->
+            <div class="about-layout">
+                <!-- Text Box Column -->
+                <div class="about-text-box fade-in-element">
+                    <h2>Nuestra Filosofía</h2>
+                    <p>
+                        En Arquitectos Xxxx, creemos en crear arquitectura que resuene con su entorno y mejore la vida de sus habitantes. Inspirados tanto en principios atemporales como en técnicas contemporáneas, fusionamos el arte con la precisión técnica. Nuestro proceso es colaborativo, centrado en comprender las necesidades del cliente y traducirlas en espacios únicos, funcionales y bellos. Estamos comprometidos con prácticas sostenibles y una cuidadosa selección de materiales.
+                    </p>
+                    <!-- Optional: Add a button like in the example image -->
+                    <!--
+                    <a href="#contact" class="about-button">
+                        <span class="button-icon">+</span> Sobre Nós
+                    </a>
+                     -->
+                </div>
+                <!-- Image Column -->
+                <div class="about-image-container fade-in-element">
+                    <img src="images/about-background.jpg" alt="Espacio interior diseñado por Arquitectos Xxxx">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- === MODIFIED SECTION END === -->
+
+
+    <section id="gallery" class="content-section">
+        <div class="container">
+            <h2 class="fade-in-element">Proyectos Destacados</h2>
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item fade-in-element">
+                    <img src="images/project-01-thumb.jpg" alt="Proyecto Alpha" data-full="images/project-01-full.jpg">
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item fade-in-element">
+                    <img src="images/project-02-thumb.jpg" alt="Casa Beta" data-full="images/project-02-full.jpg">
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item fade-in-element">
+                    <img src="images/project-03-thumb.jpg" alt="Estudio Gamma" data-full="images/project-03-full.jpg">
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item fade-in-element">
+                    <img src="images/project-04-thumb.jpg" alt="Interior Delta" data-full="images/project-04-full.jpg">
+                </div>
+                <!-- Gallery Item 5 -->
+                 <div class="gallery-item fade-in-element">
+                    <img src="images/project-05-thumb.jpg" alt="Concepto Epsilon" data-full="images/project-05-full.jpg">
+                </div>
+                <!-- Gallery Item 6 -->
+                 <div class="gallery-item fade-in-element">
+                    <img src="images/project-06-thumb.jpg" alt="Pabellón Zeta" data-full="images/project-06-full.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container content-section">
+        <h2 class="fade-in-element">Ponte en Contacto</h2>
+        <div class="contact-grid">
+            <div class="contact-info fade-in-element">
+                <h3>Detalles de Contacto</h3>
+                <p><i class="fas fa-phone icon-contact"></i> +1 (951) 123-4567</p>
+                <p><i class="fas fa-envelope icon-contact"></i> info@arquitectosxxxx.com</p>
+                <p><i class="fas fa-map-marker-alt icon-contact"></i> Av. Arquitectura 123, Ciudad Diseño, CD 68100</p>
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="contact-map fade-in-element">
+                <h3>Nuestra Ubicación</h3>
+                <div id="map-placeholder">
+                     <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086019789769!2d-122.4194154846817!3d37.77492957975817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c1e4ed1db%3A0x4a501367f076adff!2sSan%20Francisco%20City%20Hall!5e0!3m2!1sen!2sus!4v1678886500000!5m2!1sen!2sus"
+                        width="100%"
+                        height="350"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="current-year"></span> Arquitectos Xxxx. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal Structure -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">×</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Vista ampliada del proyecto">
+        <a class="prev" id="prev-btn">❮</a>
+        <a class="next" id="next-btn">❯</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
