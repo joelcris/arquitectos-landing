@@ -3,131 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arquitectos Xxxx - Arquitectura y Diseño</title>
+    <title>Arquitectos Xxxx - Estudio de Diseño</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Vertical Navigation -->
+    <nav class="vertical-nav">
+        <ul>
+            <li><a href="#hero" class="nav-dot active" data-section="Inicio"><span class="nav-label">Inicio</span></a></li>
+            <li><a href="#about" class="nav-dot" data-section="Visión"><span class="nav-label">Visión</span></a></li>
+            <li><a href="#gallery" class="nav-dot" data-section="Portafolio"><span class="nav-label">Proyectos</span></a></li>
+            <li><a href="#contact" class="nav-dot" data-section="Contacto"><span class="nav-label">Contacto</span></a></li>
+        </ul>
+    </nav>
 
     <header>
         <div class="container">
             <a href="#" class="logo-link">
-                <h1 class="logo">Arquitectos Xxxx</h1>
+                <h1 class="logo"><span class="logo-highlight">A</span>rquitectos <span class="logo-highlight">X</span>xxx</h1>
             </a>
-            <nav>
+            
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav class="horizontal-nav">
                 <ul>
-                    <li><a href="#about">Sobre Nosotros</a></li>
-                    <li><a href="#gallery">Proyectos</a></li>
-                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="#about">NUESTRA VISIÓN</a></li>
+                    <li><a href="#gallery">PROYECTOS</a></li>
+                    <li><a href="#contact">CONTACTO</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="hero">
+    <section id="hero" class="parallax-section">
         <div class="hero-content fade-in-element">
-            <h2>Diseñando Espacios, Creando Futuros</h2>
-            <p>Arquitectura innovadora arraigada en el contexto y la sostenibilidad.</p>
+            <h2 class="reveal-text">Diseñando Espacios, Creando Futuros</h2>
+            <p class="reveal-text">Arquitectura innovadora arraigada en el contexto y la sostenibilidad.</p>
+            <div class="scroll-indicator">
+                <span>Explorar</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
+        <div class="hero-parallax-bg"></div>
     </section>
 
-    <!-- === MODIFIED SECTION START === -->
     <section id="about" class="content-section">
         <div class="container">
-            <!-- New layout wrapper -->
             <div class="about-layout">
-                <!-- Text Box Column -->
                 <div class="about-text-box fade-in-element">
-                    <h2>Nuestra Filosofía</h2>
+                    <h2>NUESTRA <span class="accent-text">VISIÓN</span></h2>
                     <p>
-                        En Arquitectos Xxxx, creemos en crear arquitectura que resuene con su entorno y mejore la vida de sus habitantes. Inspirados tanto en principios atemporales como en técnicas contemporáneas, fusionamos el arte con la precisión técnica. Nuestro proceso es colaborativo, centrado en comprender las necesidades del cliente y traducirlas en espacios únicos, funcionales y bellos. Estamos comprometidos con prácticas sostenibles y una cuidadosa selección de materiales.
+                        En Arquitectos Xxxx Studio, fusionamos diseño estratégico con expresión artística para crear experiencias visuales memorables. Trabajamos en la intersección de lo bello y lo funcional, donde cada proyecto es una oportunidad para innovar e inspirar. Nuestra metodología se centra en comprender profundamente a nuestros clientes y sus audiencias, colaborando estrechamente para transformar visiones en realidades tangibles con impacto duradero.
                     </p>
-                    <!-- Optional: Add a button like in the example image -->
-                    <!--
-                    <a href="#contact" class="about-button">
-                        <span class="button-icon">+</span> Sobre Nós
-                    </a>
-                     -->
                 </div>
-                <!-- Image Column -->
                 <div class="about-image-container fade-in-element">
-                    <img src="images/about-background.jpg" alt="Espacio interior diseñado por Arquitectos Xxxx">
+                    <div class="grid-overlay"></div>
+                    <img src="images/about-background.jpg" alt="Proceso creativo en Arquitectos Xxxx Studio">
                 </div>
             </div>
         </div>
     </section>
-    <!-- === MODIFIED SECTION END === -->
-
 
     <section id="gallery" class="content-section">
         <div class="container">
-            <h2 class="fade-in-element">Proyectos Destacados</h2>
-            <div class="gallery-grid">
-                <!-- Gallery Item 1 -->
-                <div class="gallery-item fade-in-element">
-                    <img src="images/project-01-thumb.jpg" alt="Proyecto Alpha" data-full="images/project-01-full.jpg">
+            <h2 class="section-title fade-in-element">NUESTROS <span class="accent-text">PROYECTOS</span></h2>
+            <div class="gallery-asymmetric">
+                <!-- Gallery Item 1 - Large -->
+                <div class="gallery-item large fade-in-element">
+                    <img src="images/project-01-thumb.jpg" alt="Branding Lumina" data-full="images/project-01-full.jpg">
+                    <div class="project-info">
+                        <h3>Branding Lumina</h3>
+                        <p>Diseño de identidad para firma de iluminación arquitectónica</p>
+                    </div>
                 </div>
-                <!-- Gallery Item 2 -->
-                <div class="gallery-item fade-in-element">
-                    <img src="images/project-02-thumb.jpg" alt="Casa Beta" data-full="images/project-02-full.jpg">
+                <!-- Gallery Item 2 - Small -->
+                <div class="gallery-item small fade-in-element">
+                    <img src="images/project-02-thumb.jpg" alt="Diseño Editorial Horizon" data-full="images/project-02-full.jpg">
+                    <div class="project-info">
+                        <h3>Diseño Editorial Horizon</h3>
+                        <p>Publicación trimestral especializada en arquitectura moderna</p>
+                    </div>
                 </div>
-                <!-- Gallery Item 3 -->
-                <div class="gallery-item fade-in-element">
-                    <img src="images/project-03-thumb.jpg" alt="Estudio Gamma" data-full="images/project-03-full.jpg">
+                <!-- Gallery Item 3 - Small -->
+                <div class="gallery-item small fade-in-element">
+                    <img src="images/project-03-thumb.jpg" alt="Identidad Visual Pulse" data-full="images/project-03-full.jpg">
+                    <div class="project-info">
+                        <h3>Identidad Visual Pulse</h3>
+                        <p>Sistema de marca para estudio de arquitectura contemporánea</p>
+                    </div>
                 </div>
-                <!-- Gallery Item 4 -->
-                <div class="gallery-item fade-in-element">
-                    <img src="images/project-04-thumb.jpg" alt="Interior Delta" data-full="images/project-04-full.jpg">
+                <!-- Gallery Item 4 - Large -->
+                <div class="gallery-item large fade-in-element">
+                    <img src="images/project-04-thumb.jpg" alt="Experiencia Digital Nova" data-full="images/project-04-full.jpg">
+                    <div class="project-info">
+                        <h3>Experiencia Digital Nova</h3>
+                        <p>Plataforma interactiva para exploración de espacios arquitectónicos</p>
+                    </div>
                 </div>
-                <!-- Gallery Item 5 -->
-                 <div class="gallery-item fade-in-element">
-                    <img src="images/project-05-thumb.jpg" alt="Concepto Epsilon" data-full="images/project-05-full.jpg">
+                <!-- Gallery Item 5 - Medium -->
+                <div class="gallery-item medium fade-in-element">
+                    <img src="images/project-05-thumb.jpg" alt="Fotografía Ethereal" data-full="images/project-05-full.jpg">
+                    <div class="project-info">
+                        <h3>Fotografía Ethereal</h3>
+                        <p>Documentación fotográfica de obra arquitectónica residencial</p>
+                    </div>
                 </div>
-                <!-- Gallery Item 6 -->
-                 <div class="gallery-item fade-in-element">
-                    <img src="images/project-06-thumb.jpg" alt="Pabellón Zeta" data-full="images/project-06-full.jpg">
+                <!-- Gallery Item 6 - Medium -->
+                <div class="gallery-item medium fade-in-element">
+                    <img src="images/project-06-thumb.jpg" alt="Instalación Kinetic" data-full="images/project-06-full.jpg">
+                    <div class="project-info">
+                        <h3>Instalación Kinetic</h3>
+                        <p>Intervención espacial para evento de diseño arquitectónico</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="container content-section">
-        <h2 class="fade-in-element">Ponte en Contacto</h2>
+        <h2 class="section-title fade-in-element">CONTACTA <span class="accent-text">CON NOSOTROS</span></h2>
         <div class="contact-grid">
             <div class="contact-info fade-in-element">
                 <h3>Detalles de Contacto</h3>
                 <p><i class="fas fa-phone icon-contact"></i> +1 (951) 123-4567</p>
-                <p><i class="fas fa-envelope icon-contact"></i> info@arquitectosxxxx.com</p>
-                <p><i class="fas fa-map-marker-alt icon-contact"></i> Av. Arquitectura 123, Ciudad Diseño, CD 68100</p>
+                <p><i class="fas fa-envelope icon-contact"></i> hola@arquitectosxxxx.com</p>
+                <p><i class="fas fa-map-marker-alt icon-contact"></i> Av. Creativa 42, Barrio Diseño, CD 68100</p>
                 <h3>Síguenos</h3>
                 <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" aria-label="Facebook" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/19511234567" target="_blank" aria-label="WhatsApp" class="social-icon whatsapp-icon"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="contact-map fade-in-element">
                 <h3>Nuestra Ubicación</h3>
                 <div id="map-placeholder">
-                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.086019789769!2d-122.4194154846817!3d37.77492957975817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c1e4ed1db%3A0x4a501367f076adff!2sSan%20Francisco%20City%20Hall!5e0!3m2!1sen!2sus!4v1678886500000!5m2!1sen!2sus"
-                        width="100%"
-                        height="350"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3814.140189131705!2d-96.72581442509875!3d17.065794083767525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce844bd6a2df83%3A0x1aede71d26266078!2sTemplo%20de%20Santo%20Domingo%20de%20Guzm%C3%A1n!5e0!3m2!1ses-419!2smx!4v1743144016398!5m2!1ses-419!2smx" 
+                        width="600" 
+                        height="450" s
+                        tyle="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
         </div>
     </section>
+
+    <button id="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <footer>
         <div class="container">
@@ -142,6 +178,9 @@
         <a class="prev" id="prev-btn">❮</a>
         <a class="next" id="next-btn">❯</a>
     </div>
+
+    <!-- Page transition overlay -->
+    <div class="page-transition"></div>
 
     <script src="script.js"></script>
 </body>
